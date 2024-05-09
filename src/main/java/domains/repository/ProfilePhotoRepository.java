@@ -1,7 +1,12 @@
 package domains.repository;
 
 import domains.models.ProfilePhoto;
+import io.smallrye.mutiny.Uni;
+
+import java.util.Map;
 
 public interface ProfilePhotoRepository {
-    void save(String customerId, ProfilePhoto profilePhoto);
+    void registerEntities(Map<String, ProfilePhoto> entities);
+    void commit();
+    void rollback();
 }
